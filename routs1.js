@@ -11,8 +11,12 @@ const requestHandler=(req,res)=>{
         res.write('</html>');
         return res.end();
      }
+
+
      if(url=='/massege' && method=='POST'){
         const body=[];
+        console.log('krishna');
+        
         req.on('data',(chunk)=>{
             body.push(chunk);
         });
@@ -23,8 +27,11 @@ const requestHandler=(req,res)=>{
                 res.statusCode=302;
                 res.setHeader('location','/');
                 return res.end();
+                
+
             })
         })
+        
      }
      
 }
