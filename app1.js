@@ -1,8 +1,13 @@
-const http=require('http');
-const routs1=require('./routs1.js');
 
-console.log(routs1.Text);
+const express=require('express');
+const app=express();
+app.use((req,res,next)=>{
+    console.log('first middleware');
+    next();
 
-// const server=http.createServer(routs1);// this is for module.exports=requestHandler;
-const server=http.createServer(routs1.handler);
-server.listen(255);
+})
+app.use((req,res,next)=>{
+    console.log('in the next middleware');
+    res.send('<h1>this is arjun</h1>');
+})
+app.listen(344);
